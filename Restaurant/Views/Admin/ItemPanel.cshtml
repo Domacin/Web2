@@ -1,0 +1,41 @@
+﻿@using Restaurant.Models
+@{
+    ViewBag.Title = "ItemPanel";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="~/Content/ItemPanel.css" />
+    
+   
+</head>
+<body style=" background: linear-gradient(-20deg, #d0b782 20%, #a0cecf 80%);">
+    <form action="~/Admin/AddItem" method="post">
+        <div style=" padding: 16px; width: 50%;">
+            <label><b>Dish name:</b></label>
+            <input style="background:transparent" type="text" placeholder="Enter dish name" name="ItemName" required>
+
+            <label><b>Choose ingredientes:</b></label>
+            @foreach (var item in ViewBag.ingredientes)
+            {
+                <ul>
+                    <li>
+                        <input id="@item.IngredienteId" type="checkbox" name="Ingrediente" value="@item.IngredienteName">
+                        <label for="@item.IngredienteId">@item.IngredienteName</label>
+                    </li>
+                </ul>
+            }
+            <button type="submit" class="registerbtn">Add</button>
+            <div class="message">
+                @ViewBag.Message
+            </div>
+        </div>
+
+    </form>
+
+</body>
+</html>
+
+

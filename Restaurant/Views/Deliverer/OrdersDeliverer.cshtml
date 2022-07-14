@@ -1,0 +1,183 @@
+﻿
+@{
+    ViewBag.Title = "NotAcceptedDeliveries";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <link rel="stylesheet" href="~/Content/OrderList.css" />
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(-20deg, #d0b782 20%, #a0cecf 80%);
+            margin: 0px;
+            min-height: 100%;
+            width: 100%;
+        }
+
+        html {
+            margin: 0px;
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <table>
+        <caption>Orders to accept</caption>
+        <thead>
+            <tr>
+                <th class="primary" scope="col">Order ID</th>
+                <th scope="col">Address</th>
+                <th scope="col">Comment</th>
+                <th scope="col">Accepted</th>
+                <th scope="col">Delivered</th>
+                <th scope="col">Total price</th>
+                <th scope="col">Time until arival</th>
+
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in ViewBag.notAccepted)
+            {
+                <tr>
+                    <th scope="row"> <p id="orderId">@item.OrderId</p></th>
+                    <td>@item.Address</td>
+                    <td>@item.Comment</td>
+                    @if (item.Accepted == true)
+                    {
+                        <td>YES</td>
+                    }
+                    else
+                    {
+                        <td>NO</td>
+                    }
+                    @if (item.Completed == true)
+                    {
+                        <td>YES</td>
+                    }
+                    else
+                    {
+                        <td>NO</td>
+                    }
+
+                    <td>@item.OrderPrice Rsd</td>
+
+                    @if (item.Accepted == true && item.Completed == false)
+                    {
+                        <td>
+                            <p id="demo"></p>
+                        </td>
+                    }
+                    else if (item.Accepted == true && item.Completed == true)
+                    {
+                        <td>
+                            <label>Finished</label>
+                        </td>
+                    }
+                    else
+                    {
+                <td>
+                    @if (ViewBag.count == 0 && ViewBag.verified == true)
+                    {
+                        <a href="~/Deliverer/AcceptOrder?order=@item.OrderId">Accept order</a>
+                    }
+
+                </td>
+                    }
+                </tr>
+
+
+            }
+
+
+        </tbody>
+
+    </table>
+
+
+
+
+    <table>
+        <caption>Delivered orders</caption>
+        <thead>
+            <tr>
+                <th class="primary" scope="col">Order ID</th>
+                <th scope="col">Address</th>
+                <th scope="col">Comment</th>
+                <th scope="col">Accepted</th>
+                <th scope="col">Delivered</th>
+                <th scope="col">Total price</th>
+                <th scope="col">Time until arival</th>
+
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in ViewBag.delivered)
+            {
+                <tr>
+                    <th scope="row"> <p id="orderId">@item.OrderId</p></th>
+                    <td>@item.Address</td>
+                    <td>@item.Comment</td>
+                     <td>YES</td>
+                     <td>YES</td>
+                    <td>@item.OrderPrice</td>
+                    <td>Finished </td>
+                </tr>
+
+
+            }
+
+
+        </tbody>
+
+    </table>
+
+    <script>
+        var minutesToAdd = 2;
+        var currentDate = new Date();
+        var futureDate = new Date(currentDate.getTime() + minutesToAdd * 10000);
+        // Update the count down every 1 second
+        var x = setInterval(function () {
+
+            // Get today's date and time
+            var now = new Date().getTime();
+
+            // Find the distance between now and the count down date
+            var distance = futureDate - now;
+
+            // Time calculations for days, hours, minutes and seconds
+
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Output the result in an element with id="demo"
+            document.getElementById("demo").innerHTML =
+                + minutes + "m " + seconds + "s ";
+
+
+
+            // If the count down is over, write some text
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("demo").innerHTML = "EXPIRED";
+                var x = document.getElementById('orderId').innerHTML.trim();
+
+                window.location.href = "Deliverer/Delivered?x=" + x;
+            }
+        }, 1000);
+    </script>
+
+
+
+
+</body>
+</html>
+

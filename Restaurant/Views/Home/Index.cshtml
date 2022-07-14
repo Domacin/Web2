@@ -1,0 +1,128 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(-20deg, #d0b782 20%, #a0cecf 80%);
+            margin: 0px;
+            min-height: 100%;
+            width: 100%;
+        }
+        html {
+            margin: 0px;
+            height: 100%;
+            width: 100%;
+        }
+
+       
+
+        input[type=text], input[type=password] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+     
+        button {
+            background-color: #04AA6D;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+
+            button:hover {
+                opacity: 0.8;
+            }
+
+       
+
+        .imgcontainer {
+            text-align: center;
+            margin: 24px 0 12px 0;
+           
+        }
+
+        img.avatar {
+            width: 10%;
+            border-radius: 30%;
+        }
+
+        .container {
+            padding: 16px;
+            width: 50%;
+        }
+
+        span.psw {
+            float: right;
+            padding-top: 16px;
+        }
+
+        .formDiv {
+            position: absolute;
+            top: 20%;
+            left: 25%;
+        }
+        .loginForm {
+         
+            border: 3px solid #f1f1f1;
+ 
+        }
+
+        .buttonColor{
+            color:white;
+        }
+        .error {
+            color: red;
+            bottom: 20%;
+            left: 30%;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+
+
+     
+        <form stly action="~/Home/Login" method="post" class="loginForm">
+            <div class="imgcontainer">
+                <img src="..//Images//img_avatar.png" alt="Avatar" class="avatar">
+            </div>
+
+            <div class="container">
+                <label for="uname"><b>Username</b></label>
+                <input style="background:transparent" type="text" placeholder="Enter Username" name="username" required>
+
+                <label for="psw"><b>Password</b></label>
+                <input style="background:transparent" type="password" placeholder="Enter Password" name="password" required>
+
+                <button type="submit">Login</button>
+                <div class="error">
+                    @ViewBag.ErrorMessage
+                </div>
+                <a href="~/Views/Register/RegisterView.cshtml"></a>
+                <button class="buttonColor"> @Html.ActionLink("Sign up", "Index", "Register")</button>
+
+                <div>@Html.ActionLink("Login with facebook", "Facebook", "Home")</div>
+
+            </div>
+
+        </form>
+        
+    
+   
+
+</body>
+</html>
+
+

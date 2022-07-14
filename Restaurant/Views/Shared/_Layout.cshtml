@@ -1,0 +1,72 @@
+﻿@{ 
+    string user = (string)Session["user"];
+    string tip = (string)Session["type"];
+    bool activated = (bool)Session["activated"];
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    <style>
+        myNavBar{
+            background-color:transparent;
+        }
+       
+    </style>
+</head>
+<body>
+    <div class="navbar myNavBar navbar-fixed-top">
+        <div class="container">
+           
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    @if (user == null)
+                    {
+                        <li>@Html.ActionLink("Sign up", "Index", "Register")</li>
+                        <li>@Html.ActionLink("Sign in", "Index", "Home")</li>
+                    }
+                    @if (user != null)
+                    {
+                        if (user == "domacin")
+                        {
+                            <li>@Html.ActionLink("Admin panel", "Index", "Admin")</li>
+                            <li>@Html.ActionLink("Add ingrediente", "IngredientePanel", "Admin")</li>
+                            <li>@Html.ActionLink("Add dish", "ItemPanel", "Admin")</li>
+                            <li>@Html.ActionLink("All orders","AllOrders","Admin")</li>
+                        }
+                        else
+                        {
+                            if (tip == "CONSUMER" && activated == true)
+                            {
+                                <li>@Html.ActionLink("Order food", "Index", "Customer")</li>
+                                <li>@Html.ActionLink("My orders", "MyOrders", "Customer")</li>
+                            }
+
+                            if (tip == "DELIVERER" && activated == true)
+                            {
+                                <li>@Html.ActionLink("Orders", "Index", "DELIVERER")</li>
+                            }
+
+                        }
+                        <li>@Html.ActionLink("Profile", "Index", "Profile")</li>
+                        <li>@Html.ActionLink("LogOut", "LogOut", "Home")</li>
+                    }
+
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

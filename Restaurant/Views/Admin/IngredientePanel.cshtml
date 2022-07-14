@@ -1,0 +1,116 @@
+﻿
+@{
+    ViewBag.Title = "IngredientePanel";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="~/Content/OrderingFoodComboBox.css" />
+    <style>
+        html {
+            min-height: 100% !important;
+            max-width: auto;
+            background-size: cover;
+        }
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(-20deg, #d0b782 20%, #a0cecf 80%);
+            height: 100%;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+
+
+        /* Add padding to containers */
+        .container {
+            padding: 16px;
+            width: 70%;
+     
+        }
+ 
+        
+        /* Full-width input fields */
+        input[type=text], input[type=password] {
+            width: 100%;
+            padding: 15px;
+            margin: 5px 0 22px 0;
+            display: inline-block;
+            border: none;
+            background: #f1f1f1;
+        }
+
+            input[type=text]:focus, input[type=password]:focus {
+                background-color: #ddd;
+                outline: none;
+            }
+
+
+
+        .registerbtn:hover {
+            opacity: 1;
+        }
+
+        /* Add a blue text color to links */
+        a {
+            color: dodgerblue;
+        }
+
+        /* Set a grey background color and center the text of the "sign in" section */
+        .signin {
+            background-color: #f1f1f1;
+            text-align: center;
+        }
+
+        form {
+            border: 3px solid #f1f1f1;
+        }
+
+        .login {
+            background-color: Transparent;
+            background-repeat: no-repeat;
+            border: none;
+            cursor: pointer;
+            overflow: hidden;
+            outline: none;
+        }
+
+        .message {
+            color: green;
+            bottom: 20%;
+            left: 30%;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+
+    <form  action="~/Admin/AddIngrediente" method="post">
+        <div class="container">
+            <h1>Add ingrediente</h1>
+            <p>Please fill in this form to add ingrediente.</p>
+            <hr>
+
+            <label><b>Ingrediente name</b></label>
+            <br />
+            <input style="background:transparent" type="text" placeholder="Enter ingrediente name" name="IngredienteName" required>
+
+            <br />
+            <label><b>Ingrediente price</b></label>
+            <br />
+            <input style="background:transparent" type="text" placeholder="Enter ingrediente price" name="IngredientePrice" required />
+            <br />
+            <button type="submit" class="registerbtn">Add</button>
+            <div class="message">
+                @ViewBag.Message
+            </div>
+        </div>
+
+
+    </form>
+
+</body>
+</html>
+

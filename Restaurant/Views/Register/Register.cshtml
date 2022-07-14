@@ -1,0 +1,135 @@
+﻿
+@{
+    ViewBag.Title = "Register";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(-20deg, #d0b782 20%, #a0cecf 80%);
+        }
+
+      
+
+        /* Add padding to containers */
+        .container {
+            padding: 16px;
+            width: 50%;
+        }
+
+        /* Full-width input fields */
+        input[type=text], input[type=password] {
+            width: 100%;
+            padding: 15px;
+            margin: 5px 0 22px 0;
+            display: inline-block;
+            border: none;
+            background: #f1f1f1;
+        }
+
+            input[type=text]:focus, input[type=password]:focus {
+                background-color: #ddd;
+                outline: none;
+            }
+
+        
+
+            .registerbtn:hover {
+                opacity: 1;
+            }
+
+        /* Add a blue text color to links */
+        a {
+            color: dodgerblue;
+        }
+
+        /* Set a grey background color and center the text of the "sign in" section */
+        .signin {
+            background:transparent;
+            text-align: center;
+        }
+        form {
+            border: 3px solid #f1f1f1;
+        }
+
+        .login {
+            background-color: Transparent;
+            background-repeat: no-repeat;
+            border: none;
+            cursor: pointer;
+            overflow: hidden;
+            outline: none;
+        
+        }
+
+        
+        .error {
+            color: red;
+            bottom: 20%;
+            left: 30%;
+            position:relative;
+        }
+
+        input{
+            background-color: transparent;
+        }
+    </style>
+</head>
+<body>
+
+    <form action="~/Register/AddUser" method="post">
+        <div class="container">
+            <h1>Register</h1>
+            <p>Please fill in this form to create an account.</p>
+            <hr>
+
+            <label><b>Username</b></label>
+            <input style="background:transparent" type="text" placeholder="Enter Username" name="UserName" required>
+
+            <label><b>First name</b></label>
+            <input style="background:transparent" type="text" placeholder="Enter first name" name="FirstName" required />
+
+            <label><b>Last name</b></label>
+            <input style="background:transparent" type="text" placeholder="Enter last name" name="LastName" required />
+
+            <label><b>Date of Birth</b></label>
+            <input style="background:transparent" type="date" name="DateOfBirth" required />
+            <br />
+            <label><b>Address</b></label>
+            <inpu style="background:transparent" type="text" placeholder="Enter address" name="Address" required />
+            <br />
+            <label><b>Type</b></label>
+            <input style="background:transparent" list="TypeOfUSer" name="Tip" />
+            <datalist id="TypeOfUSer">
+                <option value="CONSUMER"></option>
+                <option value="DELIVERER"></option>
+            </datalist>
+            <br>
+            <label><b>Password</b></label>
+            <input style="background:transparent" type="password" placeholder="Enter Password" name="Password" required>
+
+            <label><b>Repeat Password</b></label>
+            <input style="background:transparent" type="password" placeholder="Repeat Password" name="RepeatedPassword" required>
+
+
+            <button style="background: transparent" type="submit" class="registerbtn">Register</button>
+            <div class="error">
+                @ViewBag.ErrorMessage
+            </div>
+        </div>
+
+       
+
+        <div class="container signin">
+            <p>Already have an account? <button class="login">@Html.ActionLink("Sign in", "Index", "Home")</button>
+        </div>
+
+    </form>
+
+</body>
+</html>
+

@@ -1,0 +1,82 @@
+﻿@using Restaurant.Models
+@{
+    ViewBag.Title = "MyOrders";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+ 
+        <link rel="stylesheet" href="~/Content/OrderList.css" />
+        <style>
+            body {
+                font-family: Arial, Helvetica, sans-serif;
+                background: linear-gradient(-20deg, #d0b782 20%, #a0cecf 80%);
+                margin: 0px;
+                min-height: 100%;
+                width: 100%;
+            }
+
+            html {
+                margin: 0px;
+                height: 100%;
+                width: 100%;
+            }
+        </style>
+</head>
+<body style="background: linear-gradient(-20deg, #d0b782 20%, #a0cecf 80%);background-repeat:no-repeat" >
+
+    <table>
+        <caption>My orders</caption>
+        <thead>
+            <tr>
+                <th class="primary" scope="col">Order ID</th>
+                <th scope="col">Address</th>
+                <th scope="col">Comment</th>
+                <th scope="col">Accepted</th>
+                <th scope="col">Delivered</th>
+                <th scope="col">Total price</th>
+
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in ViewBag.orders)
+            {
+                <tr>
+                    <th scope="row">@item.OrderId</th>
+                    <td>@item.Address</td>
+                    <td>@item.Comment</td>
+                    @if(item.Accepted == true)
+                    {
+                    <td>YES</td>
+                    }
+                    else
+                    {
+                    <td>NO</td>
+                    }
+                    @if (item.Completed == true)
+                    {
+                    <td>YES</td>
+                    }
+                    else
+                    {
+                    <td>NO</td>
+                    }
+
+                    <td>@item.OrderPrice Rsd</td>
+
+                </tr>
+            }
+
+
+        </tbody>
+        
+    </table>
+</body>
+</html>
+
+
+

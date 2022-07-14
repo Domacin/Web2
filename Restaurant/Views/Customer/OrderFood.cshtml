@@ -1,0 +1,156 @@
+﻿
+@{
+    ViewBag.Title = "OrderFood";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(-20deg, #d0b782 20%, #a0cecf 80%);
+            }
+
+
+
+        /* Add padding to containers */
+        .container {
+            padding: 16px;
+            width: 50%;
+        }
+
+        /* Full-width input fields */
+        input[type=text], input[type=password] {
+            width: 100%;
+            padding: 15px;
+            margin: 5px 0 22px 0;
+            display: inline-block;
+            border: none;
+            background: #f1f1f1;
+        }
+
+            input[type=text]:focus, input[type=password]:focus {
+                background-color: #ddd;
+                outline: none;
+            }
+
+
+
+        .registerbtn:hover {
+            opacity: 1;
+        }
+
+        /* Add a blue text color to links */
+        a {
+            color: dodgerblue;
+        }
+
+        /* Set a grey background color and center the text of the "sign in" section */
+        .signin {
+            background-color: #f1f1f1;
+            text-align: center;
+        }
+
+        form {
+            border: 3px solid #f1f1f1;
+        }
+
+        .login {
+            background-color: Transparent;
+            background-repeat: no-repeat;
+            border: none;
+            cursor: pointer;
+            overflow: hidden;
+            outline: none;
+        }
+
+        .error {
+            color: red;
+            bottom: 20%;
+            left: 30%;
+            position: relative;
+        }
+
+        input {
+            background-color: transparent;
+        }
+    </style>
+</head>
+<body>
+
+    <form action="~/Customer/Order" method="post">
+        <div class="container">
+            <h1>Choose your order</h1>
+            <p>You can order up to 3 dishes at one time</p>
+            <hr>
+
+            <label><b>First dish</b></label>
+            <input list="Dishes" name="Dish1" />
+            <datalist id="Dishes">
+                @foreach (var item in ViewBag.items)
+                {
+                    <option value="@item.ItemName"></option>
+
+                }
+
+            </datalist>
+            <br />
+            <input type="number" placeholder="Enter amount for first dish" name="amount1" />
+            <br>
+            <label><b>Second dish</b></label>
+            <input list="Dishes" name="Dish2" />
+            <datalist id="Dishes">
+                @foreach (var item in ViewBag.items)
+                {
+                    <option value="@item.ItemName"></option>
+
+                }
+
+            </datalist>
+            <br />
+            <input type="number" placeholder="Enter amount for second dish" name="amount2" />
+            <br>
+            <label><b>Third dish</b></label>
+            <input list="Dishes" name="Dish3" />
+            <datalist id="Dishes">
+                @foreach (var item in ViewBag.items)
+                {
+                    <option value="@item.ItemName"></option>
+
+                }
+
+            </datalist>
+            <br />
+            <input type="number" placeholder="Enter amount for third dish" name="amount3" />
+
+            <br>
+            <label><b>Adress</b></label>
+            <input style="background-color:transparent" type="text" placeholder="Enter delivery address" name="Address" required>
+
+            <label><b>Comment</b></label>
+            <input style="background-color:transparent" type="text" placeholder="Write special requests" name="Comment">
+
+
+
+            <button type="submit" class="registerbtn">Order</button>
+
+            <div class="error">
+                @ViewBag.ErrorMessage
+            </div>
+        </div>
+
+
+
+
+
+
+    </form>
+
+</body>
+</html>
+
+
+

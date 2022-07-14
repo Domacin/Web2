@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewBag.Title = "ConfirmOrder";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="~/Content/OrderingFoodComboBox.css" />
+</head>
+<body style="background: linear-gradient(-20deg, #d0b782 20%, #a0cecf 80%)">
+
+    <form stly action="~/Customer/FinaliseOrder" method="post" class="loginForm">
+        <div class="imgcontainer">
+            <img src="..//Images//confirm_avatar.png" alt="Avatar" class="avatar">
+        </div>
+        <br />
+        <div class="container">
+            <label for="uname"><b>First dish</b></label>
+            <input style="background:transparent" type="text" value="@ViewBag.dish1" readonly name="firstDish" required>
+
+            <br />
+            <label for="psw"><b>Second dish</b></label>
+            <input style="background:transparent" type="text" readonly value="@ViewBag.dish2" name="secondDish" required>
+            <br />
+            <label for="psw"><b>Third dish</b></label>
+            <input style="background:transparent" type="text" readonly value="@ViewBag.dish3" name="thirdDish" required>
+            <br />
+            <label for="psw"><b>Total price</b></label>
+            <input style="background:transparent" type="number" readonly value="@ViewBag.price" name="totalPrice" required>
+            <br />
+            <button type="submit">Confirm order</button>
+
+            <div class="error">
+                @ViewBag.ErrorMessage
+            </div>
+
+
+
+
+        </div>
+
+    </form>
+</body>
+</html>
+
+
+
+
+
