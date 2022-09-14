@@ -34,9 +34,16 @@ namespace Restaurant.Controllers
             }
 
             if (u.Tip == Models.User.TIP.CONSUMER)
+            {
                 u.Verified = true;
+                u.Active = true;
+            }
             else
+            {
                 u.Verified = false;
+                u.Verified = false;
+            }
+                
 
             
             DataBase.AddUserToDataBase(u);

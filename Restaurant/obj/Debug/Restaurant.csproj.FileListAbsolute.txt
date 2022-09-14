@@ -28,6 +28,7 @@ C:\Users\vukmi\OneDrive\Radna površina\web 2\Projekat\Restaurant\Restaurant\bin
 C:\Users\vukmi\OneDrive\Radna površina\web 2\Projekat\Restaurant\Restaurant\bin\roslyn\VBCSCompiler.exe
 C:\Users\vukmi\OneDrive\Radna površina\web 2\Projekat\Restaurant\Restaurant\bin\roslyn\VBCSCompiler.exe.config
 C:\Users\vukmi\OneDrive\Radna površina\web 2\Projekat\Restaurant\Restaurant\bin\Antlr3.Runtime.dll
+C:\Users\vukmi\OneDrive\Radna površina\web 2\Projekat\Restaurant\Restaurant\bin\Facebook.dll
 C:\Users\vukmi\OneDrive\Radna površina\web 2\Projekat\Restaurant\Restaurant\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\vukmi\OneDrive\Radna površina\web 2\Projekat\Restaurant\Restaurant\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\vukmi\OneDrive\Radna površina\web 2\Projekat\Restaurant\Restaurant\bin\Newtonsoft.Json.dll
@@ -41,6 +42,7 @@ C:\Users\vukmi\OneDrive\Radna površina\web 2\Projekat\Restaurant\Restaurant\bin
 C:\Users\vukmi\OneDrive\Radna površina\web 2\Projekat\Restaurant\Restaurant\bin\System.Web.WebPages.dll
 C:\Users\vukmi\OneDrive\Radna površina\web 2\Projekat\Restaurant\Restaurant\bin\System.Web.WebPages.Razor.dll
 C:\Users\vukmi\OneDrive\Radna površina\web 2\Projekat\Restaurant\Restaurant\bin\WebGrease.dll
+C:\Users\vukmi\OneDrive\Radna površina\web 2\Projekat\Restaurant\Restaurant\bin\Facebook.xml
 C:\Users\vukmi\OneDrive\Radna površina\web 2\Projekat\Restaurant\Restaurant\bin\System.Web.Helpers.xml
 C:\Users\vukmi\OneDrive\Radna površina\web 2\Projekat\Restaurant\Restaurant\bin\System.Web.Mvc.xml
 C:\Users\vukmi\OneDrive\Radna površina\web 2\Projekat\Restaurant\Restaurant\bin\System.Web.Optimization.xml
@@ -56,5 +58,3 @@ C:\Users\vukmi\OneDrive\Radna površina\web 2\Projekat\Restaurant\Restaurant\obj
 C:\Users\vukmi\OneDrive\Radna površina\web 2\Projekat\Restaurant\Restaurant\obj\Debug\Restaurant.csproj.CopyComplete
 C:\Users\vukmi\OneDrive\Radna površina\web 2\Projekat\Restaurant\Restaurant\obj\Debug\Restaurant.dll
 C:\Users\vukmi\OneDrive\Radna površina\web 2\Projekat\Restaurant\Restaurant\obj\Debug\Restaurant.pdb
-C:\Users\vukmi\OneDrive\Radna površina\web 2\Projekat\Restaurant\Restaurant\bin\Facebook.dll
-C:\Users\vukmi\OneDrive\Radna površina\web 2\Projekat\Restaurant\Restaurant\bin\Facebook.xml
